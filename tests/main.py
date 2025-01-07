@@ -41,5 +41,20 @@ plt.ylabel("GDP/Capita (PPP) ($)", fontsize=14)
 plt.xticks([2000, 2010, 2020], fontsize=12)
 plt.legend(title="Country", fontsize=10)
 plt.tight_layout()
-plt.show()
 plt.savefig("brics_gdp_per_capita.png")
+plt.show()
+
+
+g7_final_data = final_brics_g7_data[final_brics_g7_data['Country'].isin(g7_countries)]
+
+sns.set(style="whitegrid")
+plt.figure(figsize=(10, 6))
+sns.lineplot(data=g7_final_data, x='Year', y='GDP/Capita (PPP)', hue='Country', marker='o')
+plt.title("GDP/Capita (PPP) for G7 Countries (2000-2020)", fontsize=16)
+plt.xlabel("Year", fontsize=14)
+plt.ylabel("GDP/Capita (PPP) ($)", fontsize=14)
+plt.xticks([2000, 2010, 2020], fontsize=12)
+plt.legend(title="Country", fontsize=10)
+plt.tight_layout()
+plt.savefig("g7_gdp_per_capita.png")
+plt.show()
