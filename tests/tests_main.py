@@ -1,7 +1,23 @@
-import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
 
-data = pd.read_csv("data/gender-gap-in-average-wages-ilo.csv")
-print(data.head())  # Displays the first few rows of the dataset
-print(data.columns)  # Lists all column names
+# Filter only BRICS countries from the final data
+brics_final_data = final_brics_g7_data[final_brics_g7_data['Country'].isin(brics_countries)]
 
-pivot_data = data.pivot(index='Year', columns='Entity', values='Gender wage gap (%)')
+# Set the plot style
+sns.set(style="whitegrid")
+
+# Create the plot
+plt.figure(figsize=(10, 6))
+sns.lineplot(data=brics_final_data, x='Year', y='GDP/Capita (PPP)', hue='Country', marker='o')
+
+# Add titles and labels
+plt.title("GDP/Capita (PPP) for BRICS Countries (2000-2020)", fontsize=16)
+plt.xlabel("Year", fontsize=14)
+plt.ylabel("GDP/Capita (PPP)", fontsize=14)
+plt.xticks([2000, 2010, 2020], fontsize=12)
+plt.legend(title="Country", fontsize=10)
+plt.tight_layout()
+
+# Display the plot
+plt.show()
