@@ -58,3 +58,35 @@ plt.legend(title="Country", fontsize=10)
 plt.tight_layout()
 plt.savefig("g7_gdp_per_capita.png")
 plt.show()
+
+
+def calculate_gdp_growth(data):
+    start_year_data = data[data['Year'] == 2000][['Country', 'GDP/Capita (PPP)']]
+    end_year_data = data[data['Year'] == 2020][['Country', 'GDP/Capita (PPP)']]
+    start_year_data.rename(columns={'GDP/Capita (PPP)': 'GDP_Start'}, inplace=True)
+    end_year_data.rename(columns={'GDP/Capita (PPP)': 'GDP_End'}, inplace=True)
+    combined_data = pd.merge(start_year_data, end_year_data, on='Country')
+    combined_data['Annual Growth (%)'] = ((combined_data['GDP_End'] / combined_data['GDP_Start']) ** 
+                                          (1 / 20) - 1) * 100
+    return combined_data[['Country', 'Annual Growth (%)']]
+
+brics_growth = calculate_gdp_growth(brics_data)
+g7_growth = calculate_gdp_growth(g7_data)
+
+brics_growth['Group'] = 'BRICS'
+g7_growth['Group'] = 'G7'
+
+growth_data = pd.concat([brics_growth, g7_growth])
+
+plt.figure(figsize=(10, 6))
+for group, color in zip(['BRICS', 'G7'], ['blue', 'green']):
+    group_data = growth_data[growth_data['Group'] == group]
+    plt.bar(group_data['Country'], group_data['Annual Growth (%)'], color=color, alpha=0.7)
+
+plt.title('GDP/Capita Annual Growth (2000-2020)', fontsize=16)
+plt.ylabel('Growth (%)', fontsize=14)
+plt.xlabel('Country', fontsize=14)
+plt.xticks(rotation=45, fontsize=12)
+plt.tight_layout()
+plt.savefig("gdp_growth_rates.png")
+plt.show()
