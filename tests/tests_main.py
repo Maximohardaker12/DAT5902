@@ -1,6 +1,10 @@
 import unittest
 import pandas as pd
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> c6fa700015b93f751c589b9cff673a6e39dd9f11
 from main.main import calculate_gdp_growth  
 
 class TestGDPAnalysis(unittest.TestCase):
