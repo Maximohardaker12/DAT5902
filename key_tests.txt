@@ -1,0 +1,25 @@
+Key Tests for GDP Analysis Project
+-----------------------------------
+
+1. **Test Data Loading (`test_data_loading`)**
+   - Ensures the dataset is loaded correctly and that critical columns such as 'Country' and 'GDP/Capita (PPP)' are present.
+   - Failure in this test indicates that the dataset is missing or improperly formatted.
+
+2. **Test Filtering BRICS Data (`test_filtering_brics_data`)**
+   - Validates that the filtering logic correctly extracts data for the BRICS countries (Brazil, Russia, India, China, South Africa).
+   - Failure in this test indicates that the BRICS countries are not properly identified in the dataset.
+
+3. **Test Filtering G7 Data (`test_filtering_g7_data`)**
+   - Checks that the filtering logic correctly extracts data for the G7 countries (Canada, France, Germany, Italy, Japan, United Kingdom, United States).
+   - Failure in this test suggests issues with filtering G7 countries from the dataset.
+
+4. **Test GDP Growth Calculation (`test_calculate_gdp_growth`)**
+   - Ensures that the `calculate_gdp_growth` function correctly calculates the annual growth rate for each country.
+   - This test verifies the presence of the 'Annual Growth (%)' column and that the average growth rate is positive.
+
+5. **Test BRICS Visualisation Data (`test_brics_visualisation`)**
+   - Confirms that the visualised data for BRICS countries between 2000 and 2020 includes all BRICS countries without missing entries.
+   - Failure in this test indicates issues with the preparation of data for visualisations.
+
+-----------------------------------
+These tests ensure the integrity of the data analysis workflow and provide confidence that the results are reliable and reproducible.
