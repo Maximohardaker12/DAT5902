@@ -1,7 +1,7 @@
 # DAT5902 Final Project: Professional Software and Career Practices
 
 ## Overview
-This repository contains the code and resources for the final project of the DAT5902 module. The project focuses on analysing a high-quality dataset to test a hypothesis, perform data analysis, and visualize trends. The main goal is to provide insights into global GDP per capita trends, comparing developed (G7) and developing (BRICS) economies.
+This repository contains the code and resources for the final project of the DAT5902 module. The project focuses on analysing a high-quality dataset to test a hypothesis, perform data analysis, and visualise trends. The main goal is to provide insights into global GDP per capita trends, comparing developed (G7) and developing (BRICS) economies.
 
 ## Objectives
 1. **Hypothesis**: Developed countries (G7) have a higher GDP per capita (PPP) compared to developing countries (BRICS), but BRICS countries demonstrate higher GDP per capita growth rates in the 21st century.
